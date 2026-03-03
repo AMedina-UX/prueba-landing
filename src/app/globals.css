@@ -1,26 +1,40 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-violet-dark: #343045;
+  --color-violet: #c0b7e8;
+  --color-violet-30: #c0b7e84d;
+  --color-violet-dark-30: #0e0e0e4d;
+  --color-brand-gray: #8176af;
+  --font-montserrat: var(--font-montserrat);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-violet-dark);
+  color: #ffffff;
+  font-family: var(--font-montserrat), sans-serif;
+  overflow-x: hidden;
+}
+
+.text-gradient {
+  background: linear-gradient(262.866deg, #c0b7e8 3.72%, #8176af 82.17%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-alt {
+  background: linear-gradient(102.602deg, #c0b7e8 1.02%, #8176af 36.25%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(90deg, #8176af 0%, #c0b7e8 100%);
+}
+
+.shape-bg {
+  background: rgba(0, 0, 0, 0.13);
+  border-radius: 100px 240px 100px 100px;
 }
