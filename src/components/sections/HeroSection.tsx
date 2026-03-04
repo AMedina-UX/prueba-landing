@@ -28,11 +28,11 @@ export function HeroSection() {
                     transition={{ duration: 0.8 }}
                     className="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left z-10"
                 >
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.2] mb-6 md:mb-8">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.2] mb-6 md:mb-8">
                         <span className="text-gradient-alt">Dive</span> Into The Depths<br />
                         Of <span className="text-gradient">Virtual Reality</span>
                     </h1>
-                    <p className="text-gray-300 md:text-lg mb-10 max-w-lg hidden md:block leading-relaxed">
+                    <p className="text-gray-300 md:text-[1rem] mb-10 max-w-lg hidden md:block leading-relaxed">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
                         nisl tincidunt eget. Lectus mauris eros in vitae .
@@ -43,8 +43,8 @@ export function HeroSection() {
                                 BUILD YOUR WORLD
                             </span>
                         </Button>
-                        <div className="hidden lg:flex w-12 h-12 rounded-full border-2 border-[rgba(192,183,232,0.3)] items-center justify-center opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
-                            <ArrowRight className="text-[#c0b7e8] w-5 h-5" />
+                        <div className="hidden lg:flex w-12 h-12  border-[rgba(192,183,232,0.3)] items-center justify-center opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
+                            <ArrowRight className="text-[#c0b7e8] w-12 h-12" />
                         </div>
                     </div>
                 </motion.div>

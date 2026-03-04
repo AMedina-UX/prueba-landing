@@ -61,7 +61,9 @@ export function ProcessSection() {
             {/* Desktop View */}
             <div className="hidden md:flex relative mt-32 flex-col lg:flex-row justify-between items-center gap-16 lg:gap-4">
                 {/* Connection Line (hidden on mobile) */}
-                <div className="hidden lg:block absolute top-[99px] left-0 w-full h-[3px] bg-gradient-to-r from-[rgba(192,183,232,0.1)] via-[#c0b7e8] to-[rgba(192,183,232,0.1)] z-0 shadow-[0_0_15px_rgba(192,183,232,0.5)]" />
+                <div className="hidden lg:block absolute top-[99px] left-1/2 w-[100vw] max-w-[1700px] -translate-x-1/2 transform -translate-y-1/2 pointer-events-none z-0">
+                    <img src="/images/vector1.svg" alt="Connection Vector" className="w-full h-auto object-cover" />
+                </div>
 
                 {processes.map((process, index) => (
                     <motion.div

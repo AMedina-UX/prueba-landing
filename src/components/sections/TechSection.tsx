@@ -6,10 +6,10 @@ import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 
 const technologies = [
-    { name: 'UNREAL ENGINE', image: '/images/tech_unreal.png' },
-    { name: 'UNITY', image: '/images/tech_unity.png' },
-    { name: 'OCULUS', image: '/images/tech_oculus.png' },
-    { name: 'VIVE', image: '/images/tech_vive.png' }
+    { name: 'UNREAL ENGINE', image: '/images/unreal.png' },
+    { name: 'UNITY', image: '/images/unity.png' },
+    { name: 'OCULUS', image: '/images/oculus.png' },
+    { name: 'VIVE', image: '/images/vive.png' }
 ];
 
 export function TechSection() {
@@ -26,15 +26,17 @@ export function TechSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="relative w-full h-[300px] md:h-[350px] rounded-[100px] overflow-hidden flex flex-col items-center justify-center shadow-[0_0_60px_rgba(192,183,232,0.1)] border border-[rgba(255,255,255,0.05)]"
+                className="relative w-full h-[300px] md:h-[350px] flex flex-col items-center justify-center rounded-[100px]"
             >
-                <div className="absolute inset-0 bg-[rgba(48,44,66,0.85)] z-10" />
-                <Image
-                    src="/images/tech_bg.png"
-                    alt="Technology Background"
-                    fill
-                    className="object-cover z-0"
-                />
+                <div className="absolute inset-0 rounded-[100px] overflow-hidden shadow-[0_0_60px_rgba(192,183,232,0.1)] border border-[rgba(255,255,255,0.05)]">
+                    <div className="absolute inset-0 bg-[rgba(48,44,66,0.85)] z-10" />
+                    <Image
+                        src="/images/tech_bg.png"
+                        alt="Technology Background"
+                        fill
+                        className="object-cover z-0"
+                    />
+                </div>
 
                 <div className="relative z-20 text-center px-4">
                     <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 md:mb-4">TECHNOLOGIES & HARDWARE</h2>
@@ -42,9 +44,16 @@ export function TechSection() {
                 </div>
 
                 {/* Chevron Button */}
-                <div className="absolute -bottom-8 w-16 h-16 rounded-full bg-gradient-to-r from-[#8176af] to-[#c0b7e8] z-30 flex flex-col items-center justify-center cursor-pointer border-4 border-[#343045] shadow-[0_0_20px_rgba(192,183,232,0.4)] hover:scale-110 transition-transform">
+                <button
+                    onClick={() => {
+                        const element = document.getElementById('how-to');
+                        element?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="absolute -bottom-8 w-16 h-16 rounded-full bg-gradient-to-r from-[#8176af] to-[#c0b7e8] z-30 flex flex-col items-center justify-center cursor-pointer border-4 border-[#343045] shadow-[0_0_20px_rgba(192,183,232,0.4)] hover:scale-110 transition-transform"
+                    aria-label="Scroll to Process Section"
+                >
                     <ChevronDown className="text-[#343045] w-8 h-8" strokeWidth={3} />
-                </div>
+                </button>
             </motion.div>
 
             {/* Mobile Tech Carousel */}
@@ -69,7 +78,7 @@ export function TechSection() {
             </div>
 
             {/* Desktop Tech Logos */}
-            <div className="hidden md:flex flex-wrap items-center justify-center lg:justify-between gap-12 lg:gap-20 mt-24 px-10">
+            <div className="hidden md:flex flex-wrap items-center justify-center lg:justify-between gap-6 lg:gap-6 mt-24 px-10">
                 {technologies.map((tech, index) => (
                     <motion.div
                         key={index}
@@ -79,9 +88,13 @@ export function TechSection() {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         className="flex flex-col items-center justify-center group"
                     >
-                        <h4 className="text-3xl lg:text-4xl font-black tracking-widest text-[#c0b7e8] opacity-40 group-hover:opacity-100 transition-opacity">
-                            {tech.name}
-                        </h4>
+                        <Image
+                            src={tech.image}
+                            alt={tech.name}
+                            height={40}
+                            width={160}
+                            className="object-cover z-0"
+                        />
                     </motion.div>
                 ))}
             </div>

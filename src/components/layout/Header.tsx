@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 export function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -11,14 +12,16 @@ export function Header() {
         <header className="w-full flex justify-between items-center px-4 py-6 md:py-8 md:px-20 z-50 relative">
             <div className="flex items-center gap-4">
                 <div className="flex items-center gap-2 cursor-pointer transition-transform hover:scale-105">
-                    <div className="w-12 h-12 bg-gradient-to-br from-white to-[#c0b7e8] rounded-full flex items-center justify-center shadow-lg">
-                        <span className="text-[#343045] font-black text-2xl">H</span>
-                    </div>
-                    <span className="text-3xl font-light text-gradient tracking-widest uppercase">Hydra</span>
+                    <Image
+                        src="/logo.svg"
+                        alt="Hydra"
+                        width={190}
+                        height={100}
+                    />
                 </div>
             </div>
 
-            <nav className="hidden xl:flex items-center gap-8 text-sm font-bold">
+            <nav className="hidden xl:flex items-center gap-8 text-[0.75rem] font-bold">
                 <a href="#about" className="hover:text-[#c0b7e8] transition-colors uppercase">About</a>
                 <a href="#services" className="hover:text-[#c0b7e8] transition-colors uppercase">Services</a>
                 <a href="#technologies" className="hover:text-[#c0b7e8] transition-colors uppercase">Technologies</a>
