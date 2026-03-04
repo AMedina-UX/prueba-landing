@@ -12,19 +12,18 @@ export function OptInSection() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="w-full bg-gradient-to-b from-[#403a5f] via-[#312c46] to-[#211e2e] rounded-[60px] md:rounded-[100px] shadow-2xl p-10 md:p-24 flex flex-col items-center border border-[rgba(255,255,255,0.05)]"
+                className="w-full bg-gradient-to-b from-[#403a5f] via-[#312c46] to-[#211e2e] rounded-[40px] md:rounded-[100px] shadow-2xl p-6 sm:p-10 md:p-24 flex flex-col items-center border border-[rgba(255,255,255,0.05)]"
             >
-                <h2 className="text-3xl md:text-5xl font-bold uppercase mb-4 text-center tracking-wide">JOIN HYDRA</h2>
-                <div className="w-[200px] md:w-[300px] h-px bg-gradient-to-r from-transparent via-[#c0b7e8] to-transparent mb-8 md:mb-6 opacity-40 shadow-[0_0_10px_rgba(192,183,232,0.8)]" />
-                <h3 className="text-2xl md:text-4xl font-light mb-16 text-center text-gray-200">Let's Build Your VR Experience</h3>
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold uppercase mb-4 text-center tracking-wide">JOIN HYDRA</h2>
+                <div className="w-[150px] md:w-[300px] h-px bg-gradient-to-r from-transparent via-[#c0b7e8] to-transparent mb-6 opacity-40 shadow-[0_0_10px_rgba(192,183,232,0.8)]" />
+                <h3 className="text-xl sm:text-2xl md:text-4xl font-light mb-10 md:mb-16 text-center text-gray-200">Let's Build Your VR Experience</h3>
 
-                <form className="w-full max-w-5xl flex flex-col gap-8">
-                    <div className="flex flex-col md:flex-row gap-8">
+                <form className="w-full max-w-5xl flex flex-col gap-6 md:gap-8">
+                    <div className="flex flex-col md:flex-row gap-6 md:gap-8">
                         <Input placeholder="First Name" />
                         <Input placeholder="Last Name" />
                     </div>
-                    <div className="flex flex-col md:flex-row gap-8">
+                    <div className="flex flex-col md:flex-row gap-6 md:gap-8">
                         <Input placeholder="Email" type="email" />
                         <Input placeholder="Phone Number" type="tel" />
                     </div>

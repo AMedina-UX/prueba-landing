@@ -2,15 +2,18 @@ import React from 'react';
 
 export function Footer() {
     return (
-        <footer className="w-full px-4 md:px-20 py-20 relative z-20">
+        <footer className="w-full px-4 md:px-20 py-10 md:py-20 relative z-20">
             {/* Separator lines */}
-            <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12 lg:gap-0 pb-20">
+            <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12 lg:gap-0 pb-10 md:pb-20">
                 {/* Logo Block */}
                 <div className="flex items-center gap-4 cursor-pointer hover:scale-105 transition-transform">
-                    <div className="w-24 h-24 bg-gradient-to-br from-white to-[#c0b7e8] rounded-[30px] flex items-center justify-center shadow-[0_0_30px_rgba(192,183,232,0.3)] rotate-45">
-                        <span className="text-[#343045] font-black text-5xl -rotate-45 block">H</span>
+                    <div className="w-24 h-24 bg-gradient-to-br from-[#8176af] to-[#c0b7e8] rounded-[30px] flex items-center justify-center shadow-[0_0_30px_rgba(192,183,232,0.3)] rotate-45 border-4 border-[rgba(52,48,69,0.5)]">
+                        <span className="text-white font-black text-5xl -rotate-45 block">H</span>
                     </div>
                 </div>
+
+                {/* Mobile Separator */}
+                <div className="lg:hidden w-full max-w-[200px] h-px bg-gradient-to-r from-transparent via-[rgba(192,183,232,0.5)] to-transparent" />
 
                 <div className="hidden lg:block w-px h-48 bg-gradient-to-b from-transparent via-[rgba(192,183,232,0.5)] to-transparent" />
 
@@ -23,6 +26,9 @@ export function Footer() {
                     <a href="#" className="hover:text-[#c0b7e8] transition-colors uppercase">JOIN HYDRA</a>
                 </div>
 
+                {/* Mobile Separator */}
+                <div className="lg:hidden w-full max-w-[200px] h-px bg-gradient-to-r from-transparent via-[rgba(192,183,232,0.5)] to-transparent" />
+
                 <div className="hidden lg:block w-px h-48 bg-gradient-to-b from-transparent via-[rgba(192,183,232,0.5)] to-transparent" />
 
                 {/* Aux Links */}
@@ -32,6 +38,9 @@ export function Footer() {
                     <a href="#" className="hover:text-[#c0b7e8] hover:text-white transition-colors uppercase">CONDITIONS</a>
                     <a href="#" className="hover:text-[#c0b7e8] hover:text-white transition-colors uppercase">LICENSES</a>
                 </div>
+
+                {/* Mobile Separator */}
+                <div className="lg:hidden w-full max-w-[200px] h-px bg-gradient-to-r from-transparent via-[rgba(192,183,232,0.5)] to-transparent" />
 
                 <div className="hidden lg:block w-px h-48 bg-gradient-to-b from-transparent via-[rgba(192,183,232,0.5)] to-transparent" />
 

@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { SectionTitle } from '@/components/ui/section-title';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const processes = [
     { id: '01', title: '3D Conception', subtitle: '& Design' },
@@ -12,6 +13,11 @@ const processes = [
 ];
 
 export function ProcessSection() {
+    const [currentProcess, setCurrentProcess] = useState(0);
+
+    const nextProcess = () => setCurrentProcess((prev) => (prev + 1) % processes.length);
+    const prevProcess = () => setCurrentProcess((prev) => (prev - 1 + processes.length) % processes.length);
+
     return (
         <section id="how-to" className="w-full px-4 md:px-20 py-20 relative z-20 mt-10">
             <SectionTitle
@@ -20,7 +26,40 @@ export function ProcessSection() {
                 description="Vitae sapien pellentesque habitant morbi tristique senectus et netus et. Feugiat nibh sed pulvinar proin gravida hendrerit lectus. Mi sit amet mauris commodo quis imperdiet massa tincidunt nunc. Viverra aliquet eget sit amet tellus. Ornare lectus sit amet est placerat in. Lectus magna fringilla urna porttitor rhoncus vitae."
             />
 
-            <div className="relative mt-32 flex flex-col lg:flex-row justify-between items-center gap-16 lg:gap-4">
+            {/* Mobile Carousel View */}
+            <div className="md:hidden flex items-center justify-between w-full mt-20 relative">
+                <button onClick={prevProcess} className="z-30 w-10 h-10 rounded-full border-2 border-[rgba(192,183,232,0.3)] flex items-center justify-center hover:bg-[rgba(192,183,232,0.1)]"><ChevronLeft className="text-[#c0b7e8]" /></button>
+                <div className="w-full max-w-[250px] mx-auto overflow-hidden">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={currentProcess}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.2 }}
+                            className="flex flex-col items-center relative z-10"
+                        >
+                            {/* Number Circle */}
+                            <div className="w-[198px] h-[198px] rounded-full bg-[rgba(12,12,12,0.1)] border-[rgba(192,183,232,0.2)] border-[14px] flex items-center justify-center mb-10 shadow-xl shadow-[#c0b7e8]/5">
+                                <div className="w-[159px] h-[159px] rounded-full bg-gradient-to-r from-[#8176af] to-[#c0b7e8] flex items-center justify-center shadow-inner shadow-black/30">
+                                    <span className="text-6xl font-bold text-[#343045] drop-shadow-md">{processes[currentProcess].id}</span>
+                                </div>
+                            </div>
+                            {/* Title */}
+                            <div className="flex flex-col items-center gap-2">
+                                <div className="font-bold text-2xl text-white text-center">
+                                    <p>{processes[currentProcess].title}</p>
+                                    <p>{processes[currentProcess].subtitle}</p>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+                <button onClick={nextProcess} className="z-30 w-10 h-10 rounded-full border-2 border-[rgba(192,183,232,0.3)] flex items-center justify-center hover:bg-[rgba(192,183,232,0.1)]"><ChevronRight className="text-[#c0b7e8]" /></button>
+            </div>
+
+            {/* Desktop View */}
+            <div className="hidden md:flex relative mt-32 flex-col lg:flex-row justify-between items-center gap-16 lg:gap-4">
                 {/* Connection Line (hidden on mobile) */}
                 <div className="hidden lg:block absolute top-[99px] left-0 w-full h-[3px] bg-gradient-to-r from-[rgba(192,183,232,0.1)] via-[#c0b7e8] to-[rgba(192,183,232,0.1)] z-0 shadow-[0_0_15px_rgba(192,183,232,0.5)]" />
 

@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 
 const technologies = [
@@ -13,8 +13,13 @@ const technologies = [
 ];
 
 export function TechSection() {
+    const [currentTechIndex, setCurrentTechIndex] = useState(0);
+
+    const nextTech = () => setCurrentTechIndex((prev) => (prev + 1) % technologies.length);
+    const prevTech = () => setCurrentTechIndex((prev) => (prev - 1 + technologies.length) % technologies.length);
+
     return (
-        <section id="technologies" className="w-full px-4 md:px-20 py-20 mt-10 relative z-20">
+        <section id="technologies" className="w-full px-4 md:px-20 py-10 md:py-20 mt-10 relative z-20">
             {/* Background Banner */}
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -32,18 +37,39 @@ export function TechSection() {
                 />
 
                 <div className="relative z-20 text-center px-4">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">TECHNOLOGIES & HARDWARE</h2>
-                    <h3 className="text-2xl md:text-4xl font-light">USED BY HYDRA VR.</h3>
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 md:mb-4">TECHNOLOGIES & HARDWARE</h2>
+                    <h3 className="text-xl sm:text-2xl md:text-4xl font-light">USED BY HYDRA VR.</h3>
                 </div>
 
                 {/* Chevron Button */}
-                <div className="absolute -bottom-8 w-16 h-16 rounded-full bg-gradient-to-r from-[#8176af] to-[#c0b7e8] z-30 flex items-center justify-center cursor-pointer border-4 border-[#343045] shadow-[0_0_20px_rgba(192,183,232,0.4)] hover:scale-110 transition-transform">
+                <div className="absolute -bottom-8 w-16 h-16 rounded-full bg-gradient-to-r from-[#8176af] to-[#c0b7e8] z-30 flex flex-col items-center justify-center cursor-pointer border-4 border-[#343045] shadow-[0_0_20px_rgba(192,183,232,0.4)] hover:scale-110 transition-transform">
                     <ChevronDown className="text-[#343045] w-8 h-8" strokeWidth={3} />
                 </div>
             </motion.div>
 
-            {/* Tech Logos */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-between gap-12 lg:gap-20 mt-24 px-10">
+            {/* Mobile Tech Carousel */}
+            <div className="md:hidden flex items-center justify-between w-full mt-20 relative px-4">
+                <button onClick={prevTech} className="z-30 w-10 h-10 rounded-full border-2 border-[rgba(192,183,232,0.3)] flex items-center justify-center hover:bg-[rgba(192,183,232,0.1)]"><ChevronLeft className="text-[#c0b7e8]" /></button>
+                <div className="w-full overflow-hidden flex justify-center">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={currentTechIndex}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <h4 className="text-3xl font-black tracking-widest text-[#c0b7e8]">
+                                {technologies[currentTechIndex].name}
+                            </h4>
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+                <button onClick={nextTech} className="z-30 w-10 h-10 rounded-full border-2 border-[rgba(192,183,232,0.3)] flex items-center justify-center hover:bg-[rgba(192,183,232,0.1)]"><ChevronRight className="text-[#c0b7e8]" /></button>
+            </div>
+
+            {/* Desktop Tech Logos */}
+            <div className="hidden md:flex flex-wrap items-center justify-center lg:justify-between gap-12 lg:gap-20 mt-24 px-10">
                 {technologies.map((tech, index) => (
                     <motion.div
                         key={index}
