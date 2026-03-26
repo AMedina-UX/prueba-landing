@@ -56,10 +56,15 @@ export function HeroSection() {
                     transition={{ duration: 0.8 }}
                     className="lg:w-1/2 flex justify-center lg:justify-end relative mb-8 lg:mb-0"
                 >
+                    {/* Background lines */}
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] z-[-1] pointer-events-none hidden md:block">
+                        <img src="/images/bg-lines.png" alt="" className="w-full h-full object-contain opacity-60" />
+                    </div>
+
                     <div className="relative w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] md:w-[480px] md:h-[480px]">
                         {/* The shape backgrounds behind the image */}
-                        <div className="absolute inset-0 shape-bg scale-105 z-0 transform translate-y-4 -translate-x-4 shadow-[0_0_80px_rgba(129,118,175,0.3)]" />
-                        <div className="relative z-10 w-full h-full rounded-bl-[200px] md:rounded-bl-[240px] rounded-br-[100px] rounded-tl-[100px] rounded-tr-[100px] overflow-hidden border-[15px] border-[rgba(52,48,69,0.5)] shadow-2xl">
+
+                        <div className="relative z-10 w-full h-full rounded-bl-[200px] md:rounded-bl-[240px] rounded-br-[100px] rounded-tl-[100px] rounded-tr-[100px] overflow-hidden border-[15px] border-[rgba(0,0,0,0.2)] ">
                             <Image
                                 src="/images/hero_vr_user.png"
                                 alt="VR User interacting with environment"
